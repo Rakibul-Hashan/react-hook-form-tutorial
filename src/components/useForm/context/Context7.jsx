@@ -15,9 +15,11 @@ export default function Context7() {
       <h1>Shared State Management</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("name")} placeholder="Name" />
-        {sharedState.role === "admin" && (
+        {sharedState.role === "admin" && ( 
           <input {...register("adminNote")} placeholder="Admin Note" />
         )}
+        
+      
         <button
           type="button"
           onClick={() =>

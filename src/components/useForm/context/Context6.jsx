@@ -11,7 +11,7 @@ export default function Context6() {
       setExternalData({ minLength: 5 });
     }, 1000);
   }, []);
-
+  // function 
   const { register, handleSubmit } = useForm({
     resolver: (data, context) => {
       const errors = {};
