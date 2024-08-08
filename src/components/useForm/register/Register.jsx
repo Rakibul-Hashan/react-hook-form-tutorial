@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
-import Register_ShouldUnregister from "./Register_ShouldUnregister";
+import Register_deps from "./Register_deps";
 
 export default function Register() {
   const { register, handleSubmit } = useForm({
@@ -43,8 +43,8 @@ export default function Register() {
         <input type="submit" />
       </form>
 
-      <h1>shouldUnregister</h1>
-      <Register_ShouldUnregister />
+      <h1>deps</h1>
+      <Register_deps />
     </>
   );
 }

@@ -7,24 +7,33 @@ function Register_deps() {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onChange",
+  });
   const onSubmit = (data) => console.log(data);
 
-  const watchedValues = watch(["inputA", "inputB"]); // Watching the values of inputA and inputB
+  const inputAValue = watch("inputA"); // Watching the value of inputA
+  const inputBValue = watch("inputB"); // Watching the value of inputB
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="inputA">Input A:</label>
       <input
         id="inputA"
-        {...register("inputA", { required: "Input A is required" })}
+        {...register("inputA", {
+          required: "Input A is required",
+          valueAsNumber: true, // Ensures the value is treated as a number
+        })}
       />
       {errors.inputA && <p>{errors.inputA.message}</p>}
 
       <label htmlFor="inputB">Input B:</label>
       <input
         id="inputB"
-        {...register("inputB", { required: "Input B is required" })}
+        {...register("inputB", {
+          required: "Input B is required",
+          valueAsNumber: true, // Ensures the value is treated as a number
+        })}
       />
       {errors.inputB && <p>{errors.inputB.message}</p>}
 
@@ -32,10 +41,18 @@ function Register_deps() {
       <input
         id="inputC"
         {...register("inputC", {
-          deps: ["inputA", "inputB"],
-          validate: (value) =>
-            value === watchedValues.inputA + watchedValues.inputB ||
-            "Input C must be the sum of Input A and Input B",
+          validate: (value) => {
+            const inputA = parseFloat(inputAValue);
+            const inputB = parseFloat(inputBValue);
+            const inputC = parseFloat(value);
+            return (
+              (!isNaN(inputA) &&
+                !isNaN(inputB) &&
+                inputC === inputA + inputB) ||
+              "Input C must be the sum of Input A and Input B"
+            );
+          },
+          valueAsNumber: true, // Ensures the value is treated as a number
         })}
       />
       {errors.inputC && <p>{errors.inputC.message}</p>}
