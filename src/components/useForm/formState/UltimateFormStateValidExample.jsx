@@ -1,64 +1,27 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-export default function UltimateFormStateExample() {
+export default function SimpleForm() {
   const {
     register,
     handleSubmit,
-    formState: { isValidating, validatingFields, isValid },
+    formState: { isValidating, isValid, errors, validatingFields },
     setError,
     clearErrors,
   } = useForm({
-    mode: "onChange", // Ensures validation happens on change
+    mode: "onSubmit", // Ensures validation happens on change
   });
 
-  // Simulated async validation for the username
-  const asyncValidateUsername = async (username) => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (username === "takenUsername") {
-          reject("Username is already taken");
-        } else {
-          resolve();
-        }
-      }, 1500);
-    });
-  };
-
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     console.log("Form Submitted Successfully", data);
   };
 
-  const handleValidation = async (data) => {
-    try {
-      // Start validating the username
-      await asyncValidateUsername(data.username);
-      clearErrors("username"); // Clear error if validation passes
-      handleSubmit(onSubmit)(); // Proceed to submit the form
-    } catch (error) {
-      setError("username", { type: "manual", message: error });
-    }
-  };
-
-  const getButtonStyle = () => {
-    if (isValidating || !isValid) {
-      return {
-        background: "gray",
-        color: "white",
-        cursor: "not-allowed",
-      };
-    }
-    return {
-      background: "blue",
-      color: "white",
-      cursor: "pointer",
-    };
-  };
-
+  console.log("Validating:", isValidating);
+  console.log("Numbers of fields are being validated:", validatingFields);
   return (
     <>
-      <h2>isValidating, validatingFields, isValid</h2>
-      <form onSubmit={handleSubmit(handleValidation)}>
+      <h2>Form Validation States</h2>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label>Username:</label>
           <input
@@ -69,7 +32,7 @@ export default function UltimateFormStateExample() {
             placeholder="Username"
           />
           {/* Display username validation error */}
-          <p>{validatingFields.includes("username") ? "Validating username..." : ""}</p>
+          <p style={{ color: "red" }}>{errors.username?.message}</p>
         </div>
 
         <div>
@@ -84,12 +47,18 @@ export default function UltimateFormStateExample() {
             })}
             placeholder="Email"
           />
+          {/* Display email validation error */}
+          <p style={{ color: "red" }}>{errors.email?.message}</p>
         </div>
 
         <button
           type="submit"
           disabled={isValidating || !isValid}
-          style={getButtonStyle()}
+          style={{
+            background: isValidating || !isValid ? "gray" : "blue",
+            color: "white",
+            cursor: isValidating || !isValid ? "not-allowed" : "pointer",
+          }}
         >
           {isValidating ? "Validating..." : "Submit"}
         </button>

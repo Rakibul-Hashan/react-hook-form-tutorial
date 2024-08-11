@@ -6,7 +6,7 @@ export default function TouchFields() {
     register,
     handleSubmit,
     formState: { touchedFields }, // We are extracting touchedFields from formState
-  } = useForm({ defaultValues: { email: "", password: "" } });
+  } = useForm({ defaultValues: { email: "we@bd.com", password: "" } });
 
   const onSubmit = (data) => console.log(data);
 

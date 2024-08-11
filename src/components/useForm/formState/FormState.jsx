@@ -1,28 +1,17 @@
-import DirtyFields from "./DirtyFields";
-import IsDirty from "./IsDirty";
-import IsSubmitSuccessful from "./IsSubmitSuccessful";
-import IsSubmitting from "./IsSubmitting";
-import TouchFields from "./TouchFields";
-import IsValid from "./IsValid";
-import Errors from "./Errors";
+import IsLoading from "./IsLoading";
 
 const FormState = () => {
   return (
     <div>
       <h1>formState</h1>
 
-      <IsDirty />
-      {/* <h3>DirtyFields</h3>
-      <DirtyFields />
-      <h3>TouchFields</h3>
-      <TouchFields />
-      <h3>IsSubmitSuccessful</h3>
-      <IsSubmitSuccessful />
-      <h3>isSubmitting</h3>
-      <IsSubmitting />
-      <h3>IsValid</h3>
+      {/* <h2>IsSubmitSuccessful</h2>
+      <IsSubmitSuccessful /> */}
+
+      <IsLoading />
+      {/* <h2>IsValid</h2>
       <IsValid />
-      <h3>Errors</h3>
+      <h2>Errors</h2>
       <Errors /> */}
     </div>
   );

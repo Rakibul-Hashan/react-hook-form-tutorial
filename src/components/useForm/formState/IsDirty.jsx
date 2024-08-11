@@ -12,7 +12,7 @@ export default function IsDirty() {
 
   return (
     <>
-      <h2>IsDirty</h2>
+      {/* <h2>IsDirty</h2> */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("name")} placeholder="Enter your name" />
 
