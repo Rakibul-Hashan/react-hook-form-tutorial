@@ -1,18 +1,13 @@
-import IsLoading from "./IsLoading";
+import Errors from "./Errors";
 
 const FormState = () => {
   return (
     <div>
       <h1>formState</h1>
 
-      {/* <h2>IsSubmitSuccessful</h2>
-      <IsSubmitSuccessful /> */}
+      
+      <Errors />
 
-      <IsLoading />
-      {/* <h2>IsValid</h2>
-      <IsValid />
-      <h2>Errors</h2>
-      <Errors /> */}
     </div>
   );
 };
