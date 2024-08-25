@@ -2,11 +2,13 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 export default function Watch__Callback() {
-  const { register, watch, handleSubmit } = useForm();
+  const { register, watch, handleSubmit } = useForm({
+    mode: "onBlur",
+  });
 
   useEffect(() => {
     const subscription = watch((value, { name, type }) => {
-      // console.log("Field changed:", value, name, type);
+      console.log("Field changed:", value, name, type);
     });
     console.log("👉👉👉", subscription);
     return () => subscription.unsubscribe(); // Clean up the subscription

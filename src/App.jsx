@@ -1,13 +1,9 @@
-import Watch__Callback from "./components/useForm/watch/Watch__Callback";
-import Watch from "./components/useForm/watch/Watch";
-import Watch__use_case from "./components/useForm/watch/Watch__use_case";
+import HandleSubmit from "./components/useForm/handleSubmit/HandleSubmit";
 
 const App = () => {
   return (
     <div>
-      {/* <Watch /> */}
-      {/* <Watch__Callback /> */}
-      <Watch__use_case />
+      <HandleSubmit />
     </div>
   );
 };
