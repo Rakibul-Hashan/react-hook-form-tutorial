@@ -1,5 +1,5 @@
 ![setError - useForm method | React Hook Form ](https://i.ibb.co/QXCMZ1R/set-Error-use-Form-method.png)
-
+z
 # **UNDERSTANDING `setError` METHOD IN REACT HOOK FORM**
 
 ---
@@ -417,10 +417,10 @@ This example provides a detailed demonstration of how to handle different server
 
 - What is the difference between setting error with root key and normally setting it?
   **Key Differences:**
-  | **Feature**           | **Normal Error Setting**                       | **Error Setting with `root` Key**                       |
+  | **Feature** | **Normal Error Setting** | **Error Setting with `root` Key** |
   | --------------------- | ---------------------------------------------- | ------------------------------------------------------- |
-  | **Scope**             | Tied to a specific field                       | Applies to the entire form                              |
-  | **Error Location**    | Appears next to the field it’s associated with | Can be displayed anywhere, often at the top of the form |
-  | **Clearing Behavior** | Cleared when the field passes validation       | Must be cleared manually (e.g., with `clearErrors()`)   |
-  | **Use Case**          | Field-specific validation errors               | Global issues like server errors, form-level validation |
-  | **Persistence**       | Automatically cleared upon field validation    | Automatically cleared on each form submission           |
+  | **Scope** | Tied to a specific field | Applies to the entire form |
+  | **Error Location** | Appears next to the field it’s associated with | Can be displayed anywhere, often at the top of the form |
+  | **Clearing Behavior** | Cleared when the field passes validation | Must be cleared manually (e.g., with `clearErrors()`) |
+  | **Use Case** | Field-specific validation errors | Global issues like server errors, form-level validation |
+  | **Persistence** | Automatically cleared upon field validation | Automatically cleared on each form submission |

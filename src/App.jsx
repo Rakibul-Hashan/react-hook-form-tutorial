@@ -1,11 +1,9 @@
-import Reset from "./components/useForm/reset/Reset";
-import Resetfield from "./components/useForm/resetField/Resetfield";
-import SetError from "./components/useForm/setError/SetError";
+import ClearErrors from "./components/useForm/clearErrors/ClearErrors";
 
 const App = () => {
   return (
     <div>
-      <SetError />
+      <ClearErrors />
     </div>
   );
 };
