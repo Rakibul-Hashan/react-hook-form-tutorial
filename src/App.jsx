@@ -1,9 +1,9 @@
-import ClearErrors from "./components/useForm/clearErrors/ClearErrors";
+import UseFormContext from "./components/useFormContext/UseFormContext";
 
 const App = () => {
   return (
     <div>
-      <ClearErrors />
+      <UseFormContext />
     </div>
   );
 };
